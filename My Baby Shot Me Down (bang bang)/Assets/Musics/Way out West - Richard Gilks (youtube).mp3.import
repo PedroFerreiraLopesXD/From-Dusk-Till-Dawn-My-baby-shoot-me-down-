@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkkmji0rl0cgo"
+path="res://.godot/imported/Way out West - Richard Gilks (youtube).mp3-8a17b56a8f4f7e638b5227d43c9ad30e.mp3str"
+
+[deps]
+
+source_file="res://Assets/Musics/Way out West - Richard Gilks (youtube).mp3"
+dest_files=["res://.godot/imported/Way out West - Richard Gilks (youtube).mp3-8a17b56a8f4f7e638b5227d43c9ad30e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

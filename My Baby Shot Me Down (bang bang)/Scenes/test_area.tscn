@@ -4,14 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cl3jg7rul0dep" path="res://Scenes/character.tscn" id="2_bc04g"]
 [ext_resource type="Script" uid="uid://dqoa2cxx6dc4k" path="res://hud.gd" id="3_ifqnq"]
 [ext_resource type="PackedScene" uid="uid://drv4n6uaticst" path="res://Scenes/pause_menu.tscn" id="4_kbjuv"]
-
-[sub_resource type="Sky" id="Sky_15qo1"]
-
-[sub_resource type="Environment" id="Environment_msx0k"]
-background_mode = 2
-sky = SubResource("Sky_15qo1")
-ambient_light_source = 3
-ambient_light_color = Color(9.62615e-08, 2.117753e-06, 0.92150843, 1)
+[ext_resource type="AudioStream" uid="uid://b7vq417lm2p65" path="res://Assets/Musics/Man with No Name - Vasco (youtube).mp3" id="5_bc04g"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fw7ol"]
 size = Vector2(20, 20)
@@ -24,12 +17,9 @@ data = PackedVector3Array(0.2286, 2.2884, -0.4349, 0.2872, 2.2884, -0.4373, 0.22
 
 [node name="TestArea" type="Node3D" unique_id=530997429]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1388058583]
-environment = SubResource("Environment_msx0k")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=793410509]
 transform = Transform3D(-0.7944146, 0.2547651, -0.55136216, 0, 0.9077775, 0.4194521, 0.60737586, 0.33321887, -0.72115165, 0, 0, 0)
-shadow_enabled = true
+sky_mode = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=722481393]
 mesh = SubResource("PlaneMesh_fw7ol")
@@ -63,3 +53,7 @@ value = 100.0
 show_percentage = false
 
 [node name="PauseMenu" parent="." unique_id=1940577622 instance=ExtResource("4_kbjuv")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=637863038]
+stream = ExtResource("5_bc04g")
+autoplay = true
