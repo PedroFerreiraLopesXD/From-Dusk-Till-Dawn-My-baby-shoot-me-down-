@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl3jg7rul0dep"]
+[gd_scene format=3 uid="uid://cl3jg7rul0dep"]
+
+[ext_resource type="PackedScene" uid="uid://brunvedy6elpi" path="res://Scenes/gun.tscn" id="1_lkv7d"]
 
 [sub_resource type="GDScript" id="GDScript_vu45j"]
 script/source = "extends CharacterBody3D
@@ -27,6 +29,7 @@ var gravity = 9.8
 
 @onready var cabeça = $\"cabeça\"
 @onready var camera = $\"cabeça/Camera3D\"
+@onready var gun_animation = $\"cabeça/Camera3D/Gun/MeshInstance3D/gun_animation\"
 
 func _ready():
 	camera_base_pos = camera.position
@@ -77,6 +80,10 @@ func _physics_process(delta: float) -> void:
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.position = camera_base_pos + _headbob(t_bob)
 	
+	if Input.is_action_pressed(\"Shoot\"):
+		if !gun_animation.is_playing():
+			gun_animation.play(\"shoot\")	
+	
 	move_and_slide()
 
 func _headbob(time) -> Vector3:
@@ -90,18 +97,22 @@ func _headbob(time) -> Vector3:
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pjt0s"]
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=97614675]
 script = SubResource("GDScript_vu45j")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=388855511]
 layers = 2
 mesh = SubResource("CapsuleMesh_glpr6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2092024402]
 shape = SubResource("CapsuleShape3D_pjt0s")
 
-[node name="cabeça" type="Node3D" parent="."]
+[node name="cabeça" type="Node3D" parent="." unique_id=1135263764]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0879202, -0.09869194)
 
-[node name="Camera3D" type="Camera3D" parent="cabeça"]
+[node name="Camera3D" type="Camera3D" parent="cabeça" unique_id=1826483327]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3588462, -0.07662928)
+metadata/_edit_lock_ = true
+
+[node name="Gun" parent="cabeça/Camera3D" unique_id=613846370 instance=ExtResource("1_lkv7d")]
+transform = Transform3D(0.04780385, 0, 0.9988567, 0, 1, 0, -0.9988567, 0, 0.04780385, -0.2305517, -0.1611613, -0.40614486)
