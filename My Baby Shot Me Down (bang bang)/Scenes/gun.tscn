@@ -74,5 +74,10 @@ transform = Transform3D(0.93969274, -0.34202015, 0, 0.34202015, 0.93969274, 0, 0
 mesh = ExtResource("1_oqrbh")
 surface_material_override/0 = SubResource("StandardMaterial3D_k4teu")
 
-[node name="gun_animation" type="AnimationPlayer" parent="MeshInstance3D" unique_id=1999824408]
+[node name="animation_player" type="AnimationPlayer" parent="." unique_id=1999824408]
+root_node = NodePath("../MeshInstance3D")
 libraries/ = SubResource("AnimationLibrary_k4teu")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=161030691]
+transform = Transform3D(-0.0016231966, 0, -0.9999987, 0, 1, 0, 0.9999987, 0, -0.0016231966, 0, 0, 0)
+target_position = Vector3(0, 0, -1)

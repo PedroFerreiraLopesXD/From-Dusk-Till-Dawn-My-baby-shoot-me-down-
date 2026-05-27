@@ -29,7 +29,7 @@ var gravity = 9.8
 
 @onready var cabeça = $\"cabeça\"
 @onready var camera = $\"cabeça/Camera3D\"
-@onready var gun_animation = $\"cabeça/Camera3D/Gun/MeshInstance3D/gun_animation\"
+@onready var gun_animation = $\"cabeça/Camera3D/Gun/animation_player\"
 
 func _ready():
 	camera_base_pos = camera.position
@@ -82,8 +82,8 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed(\"Shoot\"):
 		if !gun_animation.is_playing():
-			gun_animation.play(\"shoot\")	
-	
+			gun_animation.play(\"BangBang\")
+
 	move_and_slide()
 
 func _headbob(time) -> Vector3:
@@ -115,4 +115,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3588462, -0.07662928)
 metadata/_edit_lock_ = true
 
 [node name="Gun" parent="cabeça/Camera3D" unique_id=613846370 instance=ExtResource("1_lkv7d")]
-transform = Transform3D(0.04780385, 0, 0.9988567, 0, 1, 0, -0.9988567, 0, 0.04780385, -0.2305517, -0.1611613, -0.40614486)
+transform = Transform3D(0.04780385, 0, 0.9988567, 0, 1, 0, -0.9988567, 0, 0.04780385, 0.16767803, -0.08289564, -0.31219158)
