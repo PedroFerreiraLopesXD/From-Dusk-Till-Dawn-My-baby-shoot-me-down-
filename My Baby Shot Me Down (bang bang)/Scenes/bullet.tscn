@@ -1,20 +1,22 @@
 [gd_scene format=3 uid="uid://b5h71lxjh6die"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_oduel"]
+[ext_resource type="Script" uid="uid://c5i6515froscc" path="res://Scripts/bullet.gd" id="1_xjght"]
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_ycag2"]
-albedo_color = Color(1, 1, 0, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_4mw4s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjght"]
+albedo_color = Color(1, 1, 0.9490196, 1)
 emission_enabled = true
-emission = Color(0.85818875, 0.8581884, 1.1551381e-06, 1)
-emission_energy_multiplier = 5.0
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 8.0
 
-[node name="Bullet" type="Node3D" unique_id=540657658]
+[node name="bullet" type="Node3D" unique_id=1845530560]
+script = ExtResource("1_xjght")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=697901116]
-transform = Transform3D(0.9919597, 0, 0, 0, 0.020130984, 0, 0, 0, 0.018770771, 0, 0, 0)
-mesh = SubResource("BoxMesh_oduel")
-surface_material_override/0 = SubResource("ORMMaterial3D_ycag2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=465652653]
+transform = Transform3D(-0.016501559, 1.6364063e-09, 0, -2.4916662e-09, -0.01083743, 0, 0, 0, 1.5580249, -7.861853e-05, 0.0053299516, 0.009534314)
+mesh = SubResource("BoxMesh_4mw4s")
+surface_material_override/0 = SubResource("StandardMaterial3D_xjght")
 
-[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1368923852]
-transform = Transform3D(0.0028274776, 0, -0.999996, 0, 1, 0, 0.999996, 0, 0.0028274776, 0.04371941, 0, 0)
-target_position = Vector3(0, 0, -0.5)
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1885178263]
+transform = Transform3D(1, 0, 0, 0, -0.008763282, 1.0059919, 0, -1.3424805, -0.0065667927, 0.005469948, -0.0024836734, -0.55336744)

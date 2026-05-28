@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://tafreukou5ko" path="res://Assets/arvore teste.obj" id="1_15qo1"]
 [ext_resource type="PackedScene" uid="uid://cl3jg7rul0dep" path="res://Scenes/character.tscn" id="2_bc04g"]
-[ext_resource type="Script" uid="uid://dqoa2cxx6dc4k" path="res://hud.gd" id="3_ifqnq"]
+[ext_resource type="Script" uid="uid://dqoa2cxx6dc4k" path="res://Scripts/hud.gd" id="3_ifqnq"]
 [ext_resource type="PackedScene" uid="uid://drv4n6uaticst" path="res://Scenes/pause_menu.tscn" id="4_kbjuv"]
 [ext_resource type="AudioStream" uid="uid://b7vq417lm2p65" path="res://Assets/Musics/Man with No Name - Vasco (youtube).mp3" id="5_bc04g"]
 

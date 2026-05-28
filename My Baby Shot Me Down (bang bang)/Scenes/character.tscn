@@ -27,9 +27,14 @@ var camera_base_pos: Vector3
 
 var gravity = 9.8
 
+var bullets = load(\"res://Scenes/bullet.tscn\")
+var instance 
+
 @onready var cabeça = $\"cabeça\"
 @onready var camera = $\"cabeça/Camera3D\"
 @onready var gun_animation = $\"cabeça/Camera3D/Gun/animation_player\"
+@onready var gun_barrel = $\"cabeça/Camera3D/Gun/RayCast3D\"
+@onready var RevolverSound = $\"cabeça/Camera3D/Gun/RevolverSound\"
 
 func _ready():
 	camera_base_pos = camera.position
@@ -83,6 +88,16 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed(\"Shoot\"):
 		if !gun_animation.is_playing():
 			gun_animation.play(\"BangBang\")
+			var RandomSound = randi_range(1,2)
+			if RandomSound == 1:
+				RevolverSound.stream = preload(\"res://Assets/SoundEffects/RevolverSound1.tres\")
+			elif RandomSound == 2:
+				RevolverSound.stream = preload(\"res://Assets/SoundEffects/RevolverSound2.tres\")
+			RevolverSound.play()
+			instance = bullets.instantiate()
+			instance.position = gun_barrel.global_position
+			instance.transform.basis = gun_barrel.global_transform.basis
+			get_parent().add_child(instance)
 
 	move_and_slide()
 
@@ -115,4 +130,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3588462, -0.07662928)
 metadata/_edit_lock_ = true
 
 [node name="Gun" parent="cabeça/Camera3D" unique_id=613846370 instance=ExtResource("1_lkv7d")]
-transform = Transform3D(0.04780385, 0, 0.9988567, 0, 1, 0, -0.9988567, 0, 0.04780385, 0.16767803, -0.08289564, -0.31219158)
+transform = Transform3D(0.047803853, -2.8999764e-10, 0.99885684, -0.0033646673, 0.9999943, 0.0001610266, -0.9988512, -0.0033685565, 0.047803584, 0.16767803, -0.08289564, -0.31219158)
