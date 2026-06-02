@@ -29,12 +29,17 @@ var gravity = 9.8
 
 var bullets = load(\"res://Scenes/bullet.tscn\")
 var instance 
+var capacidade_tambor = 6
+var balas = 6
+var recarregando = false
+var tempo_reload = 4.0
 
 @onready var cabeça = $\"cabeça\"
 @onready var camera = $\"cabeça/Camera3D\"
 @onready var gun_animation = $\"cabeça/Camera3D/Gun/animation_player\"
 @onready var gun_barrel = $\"cabeça/Camera3D/Gun/RayCast3D\"
 @onready var RevolverSound = $\"cabeça/Camera3D/Gun/RevolverSound\"
+@onready var NOAMMOSound = $\"cabeça/Camera3D/Gun/noammo\"
 
 func _ready():
 	camera_base_pos = camera.position
@@ -85,7 +90,14 @@ func _physics_process(delta: float) -> void:
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.position = camera_base_pos + _headbob(t_bob)
 	
-	if Input.is_action_pressed(\"Shoot\"):
+	if Input.is_action_just_pressed(\"Shoot\"):
+		if balas <= 0:
+			NOAMMOSound.play()
+			print(\"sem balas!\")
+			return
+		balas -= 1
+		print(\"Balas:\", balas)
+		
 		if !gun_animation.is_playing():
 			gun_animation.play(\"BangBang\")
 			var RandomSound = randi_range(1,2)
@@ -98,6 +110,7 @@ func _physics_process(delta: float) -> void:
 			instance.position = gun_barrel.global_position
 			instance.transform.basis = gun_barrel.global_transform.basis
 			get_parent().add_child(instance)
+
 
 	move_and_slide()
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buy17o0ldxds"
+path="res://.godot/imported/Revolver Cylinder Click Sound Effect - Sound Effect Database (youtube) (mp3cut.net).mp3-73225431f89f46326fc731d4690a990a.mp3str"
+
+[deps]
+
+source_file="res://Assets/SoundEffects/Revolver Cylinder Click Sound Effect - Sound Effect Database (youtube) (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/Revolver Cylinder Click Sound Effect - Sound Effect Database (youtube) (mp3cut.net).mp3-73225431f89f46326fc731d4690a990a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
