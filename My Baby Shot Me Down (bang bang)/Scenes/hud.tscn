@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bgvxtbjek4h65"]
+
+[ext_resource type="Script" uid="uid://dqoa2cxx6dc4k" path="res://Scripts/hud.gd" id="1_e0onf"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1771319279 node_paths=PackedStringArray("player")]
+script = ExtResource("1_e0onf")
+player = NodePath("")
+
+[node name="stamina" type="ProgressBar" parent="." unique_id=464434898]
+offset_right = 195.0
+offset_bottom = 32.0
+value = 100.0
+show_percentage = false

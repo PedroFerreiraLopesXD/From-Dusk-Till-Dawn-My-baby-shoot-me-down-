@@ -10,3 +10,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position += transform.basis * Vector3(0, 0, -SPEED) * delta
+
+func matar():
+	if ray.is_colliding():
+		var alvo = ray.get_collider()
+		if alvo.is_in_group("Inimigo"):
+				alvo.queue_free()

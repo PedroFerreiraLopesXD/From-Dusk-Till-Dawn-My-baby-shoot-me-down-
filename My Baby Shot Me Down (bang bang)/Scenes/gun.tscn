@@ -2,11 +2,25 @@
 
 [ext_resource type="ArrayMesh" uid="uid://c6ehid2rl0pi2" path="res://Assets/low-poly-colt-peacemaker/source/colt_low/colt_low.obj" id="1_oqrbh"]
 [ext_resource type="Texture2D" uid="uid://dd5yy1uqatcvl" path="res://Assets/low-poly-colt-peacemaker/textures/colt_low_BaseColor.png" id="2_t6ynv"]
+[ext_resource type="Texture2D" uid="uid://x6fpaabq8cea" path="res://Assets/Flash2.png" id="3_alhkf"]
 [ext_resource type="AudioStream" uid="uid://biorx1qt3x85c" path="res://Assets/SoundEffects/RevolverSound1.tres" id="3_t6ynv"]
 [ext_resource type="AudioStream" uid="uid://buy17o0ldxds" path="res://Assets/SoundEffects/Revolver Cylinder Click Sound Effect - Sound Effect Database (youtube) (mp3cut.net).mp3" id="4_k4teu"]
+[ext_resource type="AudioStream" uid="uid://ww368usheo7w" path="res://Assets/SoundEffects/FinalBullet.mp3" id="5_ft2q4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4teu"]
 albedo_texture = ExtResource("2_t6ynv")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bsipy"]
+flip_faces = true
+size = Vector2(0.5, 0.5)
+orientation = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftlo2"]
+transparency = 1
+albedo_texture = ExtResource("3_alhkf")
+emission_enabled = true
+emission_energy_multiplier = 3.0
+emission_texture = ExtResource("3_alhkf")
 
 [sub_resource type="Animation" id="Animation_oqrbh"]
 resource_name = "BangBang"
@@ -63,26 +77,10 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_k4teu"]
-resource_name = "Reloding"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:mesh")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k4teu"]
 _data = {
 &"BangBang": SubResource("Animation_oqrbh"),
-&"RESET": SubResource("Animation_t6ynv"),
-&"Reloding": SubResource("Animation_k4teu")
+&"RESET": SubResource("Animation_t6ynv")
 }
 
 [node name="Gun" type="Node3D" unique_id=613846370]
@@ -92,6 +90,12 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(0.93969274, -0.34202015, 0, 0.34202015, 0.93969274, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("1_oqrbh")
 surface_material_override/0 = SubResource("StandardMaterial3D_k4teu")
+
+[node name="MuzzleFlash" type="MeshInstance3D" parent="." unique_id=1182640392]
+transform = Transform3D(0.80652046, 0, 0, 0, 0.9246333, 0, 0, 0, 1.3105063, 0.12325153, 0.045522857, -0.02782163)
+visible = false
+mesh = SubResource("PlaneMesh_bsipy")
+surface_material_override/0 = SubResource("StandardMaterial3D_ftlo2")
 
 [node name="animation_player" type="AnimationPlayer" parent="." unique_id=1999824408]
 root_node = NodePath("../MeshInstance3D")
@@ -107,3 +111,6 @@ stream = ExtResource("3_t6ynv")
 
 [node name="noammo" type="AudioStreamPlayer3D" parent="." unique_id=2035501089]
 stream = ExtResource("4_k4teu")
+
+[node name="Lastbullet" type="AudioStreamPlayer3D" parent="." unique_id=1690452976]
+stream = ExtResource("5_ft2q4")

@@ -3,8 +3,10 @@
 [ext_resource type="ArrayMesh" uid="uid://tafreukou5ko" path="res://Assets/arvore teste.obj" id="1_15qo1"]
 [ext_resource type="PackedScene" uid="uid://cl3jg7rul0dep" path="res://Scenes/character.tscn" id="2_bc04g"]
 [ext_resource type="Script" uid="uid://dqoa2cxx6dc4k" path="res://Scripts/hud.gd" id="3_ifqnq"]
+[ext_resource type="PackedScene" uid="uid://6bsq7y4quhk7" path="res://Scenes/stamina.tscn" id="4_ifqnq"]
 [ext_resource type="PackedScene" uid="uid://drv4n6uaticst" path="res://Scenes/pause_menu.tscn" id="4_kbjuv"]
 [ext_resource type="AudioStream" uid="uid://b7vq417lm2p65" path="res://Assets/Musics/Man with No Name - Vasco (youtube).mp3" id="5_bc04g"]
+[ext_resource type="PackedScene" uid="uid://c41c818hu4g48" path="res://Scenes/character_body_3d.tscn" id="7_kbjuv"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fw7ol"]
 size = Vector2(20, 20)
@@ -40,20 +42,18 @@ shape = SubResource("ConcavePolygonShape3D_rfpkf")
 
 [node name="CharacterBody3D" parent="." unique_id=841813386 instance=ExtResource("2_bc04g")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.50772774, 0)
-rotation_edit_mode = 2
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1274086168 node_paths=PackedStringArray("player")]
+[node name="HUD" type="CanvasLayer" parent="CharacterBody3D" unique_id=1274086168 node_paths=PackedStringArray("player")]
 script = ExtResource("3_ifqnq")
-player = NodePath("../CharacterBody3D")
+player = NodePath("..")
 
-[node name="stamina" type="ProgressBar" parent="HUD" unique_id=788193182]
-offset_right = 195.0
-offset_bottom = 32.0
-value = 100.0
-show_percentage = false
+[node name="stamina" parent="CharacterBody3D/HUD" unique_id=1594404746 instance=ExtResource("4_ifqnq")]
 
 [node name="PauseMenu" parent="." unique_id=1940577622 instance=ExtResource("4_kbjuv")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=637863038]
 stream = ExtResource("5_bc04g")
 autoplay = true
+
+[node name="Inimigo" parent="." unique_id=12988129 instance=ExtResource("7_kbjuv")]
+transform = Transform3D(-0.72633326, 0, -0.33532083, 0, 0.8, 0, 0.33532083, 0, -0.72633326, 1.7281473, 0.90554416, 3.624928)

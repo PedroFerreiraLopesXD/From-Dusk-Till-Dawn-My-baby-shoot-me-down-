@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cl3jg7rul0dep"]
 
 [ext_resource type="PackedScene" uid="uid://brunvedy6elpi" path="res://Scenes/gun.tscn" id="1_lkv7d"]
+[ext_resource type="PackedScene" uid="uid://6bsq7y4quhk7" path="res://Scenes/stamina.tscn" id="2_ushfy"]
 
 [sub_resource type="GDScript" id="GDScript_vu45j"]
 script/source = "extends CharacterBody3D
@@ -40,6 +41,7 @@ var tempo_reload = 4.0
 @onready var gun_barrel = $\"cabeça/Camera3D/Gun/RayCast3D\"
 @onready var RevolverSound = $\"cabeça/Camera3D/Gun/RevolverSound\"
 @onready var NOAMMOSound = $\"cabeça/Camera3D/Gun/noammo\"
+@onready var Lastbullet = $\"cabeça/Camera3D/Gun/Lastbullet\"
 
 func _ready():
 	camera_base_pos = camera.position
@@ -105,6 +107,8 @@ func _physics_process(delta: float) -> void:
 				RevolverSound.stream = preload(\"res://Assets/SoundEffects/RevolverSound1.tres\")
 			elif RandomSound == 2:
 				RevolverSound.stream = preload(\"res://Assets/SoundEffects/RevolverSound2.tres\")
+			if balas == 0:
+				Lastbullet.play()
 			RevolverSound.play()
 			instance = bullets.instantiate()
 			instance.position = gun_barrel.global_position
@@ -144,3 +148,5 @@ metadata/_edit_lock_ = true
 
 [node name="Gun" parent="cabeça/Camera3D" unique_id=613846370 instance=ExtResource("1_lkv7d")]
 transform = Transform3D(0.047803853, -2.8999764e-10, 0.99885684, -0.0033646673, 0.9999943, 0.0001610266, -0.9988512, -0.0033685565, 0.047803584, 0.16767803, -0.08289564, -0.31219158)
+
+[node name="stamina" parent="." unique_id=1594404746 instance=ExtResource("2_ushfy")]

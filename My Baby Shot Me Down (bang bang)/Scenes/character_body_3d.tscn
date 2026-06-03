@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c41c818hu4g48"]
+
+[ext_resource type="Script" uid="uid://dkxwwqwhed00x" path="res://Scripts/Inimigo.gd" id="1_gfjpw"]
+[ext_resource type="Texture2D" uid="uid://dj5hysqc1qdwu" path="res://icon.svg" id="1_hr86y"]
+[ext_resource type="PackedScene" uid="uid://b63p0o3t5rvrk" path="res://Assets/very-low-poly-cowboy-hat/source/hat01.fbx" id="2_fn5od"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fn5od"]
+radius = 0.52197266
+height = 2.0249023
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfjpw"]
+albedo_texture = ExtResource("1_hr86y")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fa3hm"]
+
+[node name="Inimigo" type="CharacterBody3D" unique_id=12988129 groups=["Inimigo"]]
+script = ExtResource("1_gfjpw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=618755870]
+transform = Transform3D(1, 0, 0, 0, 1.0461699, 0, 0, 0, 1.0406984, 0, 0.012451172, -0.004705906)
+shape = SubResource("CapsuleShape3D_fn5od")
+debug_color = Color(0, 0.592318, 0.7440221, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1309575643]
+material_override = SubResource("StandardMaterial3D_gfjpw")
+mesh = SubResource("CapsuleMesh_fa3hm")
+
+[node name="hat01" parent="." unique_id=688333960 instance=ExtResource("2_fn5od")]
+transform = Transform3D(1.9980824, -0.014636976, 0.08632693, 0.006573785, 1.991369, 0.18548897, -0.08731188, -0.18502736, 1.9895078, 0.005026333, 0.9058949, 0.0265553)
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=322473063]
+
+[node name="Timer" type="Timer" parent="." unique_id=54576259]
