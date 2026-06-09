@@ -114,3 +114,5 @@ stream = ExtResource("4_k4teu")
 
 [node name="Lastbullet" type="AudioStreamPlayer3D" parent="." unique_id=1690452976]
 stream = ExtResource("5_ft2q4")
+
+[node name="Timer" type="Timer" parent="." unique_id=1909840605]

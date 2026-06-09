@@ -11,21 +11,28 @@ emission = Color(1, 1, 0, 1)
 emission_energy_multiplier = 8.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xjght"]
-size = Vector3(1, 1, 157.72124)
+size = Vector3(0.028778076, 0.035354614, 1.5636597)
 
 [node name="bullet" type="Node3D" unique_id=1845530560]
 script = ExtResource("1_xjght")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=465652653]
-transform = Transform3D(-0.016501559, 1.6364063e-09, 0, -2.4916662e-09, -0.01083743, 0, 0, 0, 1.5580249, -7.861853e-05, 0.0053299516, 0.009534314)
+transform = Transform3D(-0.016501559, 1.6364063e-09, 0, -2.4916662e-09, -0.01083743, 0, 0, 0, 1.5580249, -7.861853e-05, 0.03464715, 0.009534314)
 mesh = SubResource("BoxMesh_4mw4s")
 surface_material_override/0 = SubResource("StandardMaterial3D_xjght")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1885178263]
-transform = Transform3D(1, 0, 0, 0, -0.008763282, 1.0059919, 0, -1.3424805, -0.0065667927, 0.005469948, -0.0024836734, -0.55336744)
+transform = Transform3D(1, 0, 0, 0, -0.010098754, 1.0069927, 0, -1.5470668, -0.0065733255, -0.00014340878, 0.032693326, -0.74932957)
+visible = false
+enabled = false
+target_position = Vector3(-0.01, -1, 0)
 
-[node name="Area3D" type="Area3D" parent="." unique_id=2146788427]
+[node name="Area3D" type="Area3D" parent="." unique_id=351025693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03304518, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1776937599]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0.015516737)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=224894964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014190674, 0.0021896288, 0.0113220215)
 shape = SubResource("BoxShape3D_xjght")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

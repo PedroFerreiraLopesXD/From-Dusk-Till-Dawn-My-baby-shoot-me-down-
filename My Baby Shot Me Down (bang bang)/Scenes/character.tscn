@@ -100,6 +100,9 @@ func _physics_process(delta: float) -> void:
 		balas -= 1
 		print(\"Balas:\", balas)
 		
+		if recarregando:
+			return
+		
 		if !gun_animation.is_playing():
 			gun_animation.play(\"BangBang\")
 			var RandomSound = randi_range(1,2)
@@ -114,9 +117,28 @@ func _physics_process(delta: float) -> void:
 			instance.position = gun_barrel.global_position
 			instance.transform.basis = gun_barrel.global_transform.basis
 			get_parent().add_child(instance)
-
+	if Input.is_action_just_pressed(\"Reload\"):
+		Reload()
 
 	move_and_slide()
+
+func Reload():
+	if recarregando:
+		return
+	recarregando = true
+	print(\"Recarregando...\")
+	
+	await get_tree().create_timer(2.0).timeout
+	
+	var needed = capacidade_tambor - balas
+	var to_load = needed
+
+	balas += to_load
+
+	recarregando = false
+
+	print(\"Recarga concluida!\")
+	
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -133,6 +155,7 @@ func _headbob(time) -> Vector3:
 script = SubResource("GDScript_vu45j")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=388855511]
+visible = false
 layers = 2
 mesh = SubResource("CapsuleMesh_glpr6")
 
