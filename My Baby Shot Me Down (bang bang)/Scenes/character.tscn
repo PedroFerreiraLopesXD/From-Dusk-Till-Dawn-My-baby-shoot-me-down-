@@ -96,7 +96,6 @@ func _physics_process(delta: float) -> void:
 			NOAMMOSound.play()
 			print(\"sem balas!\")
 			return
-		balas -= 1
 		print(\"Balas:\", balas)
 		
 		if recarregando:
@@ -104,6 +103,7 @@ func _physics_process(delta: float) -> void:
 		
 		if !gun_animation.is_playing():
 			gun_animation.play(\"BangBang\")
+			balas -= 1
 			var RandomSound = randi_range(1,2)
 			if RandomSound == 1:
 				RevolverSound.stream = preload(\"res://Assets/SoundEffects/RevolverSound1.tres\")
@@ -169,6 +169,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3588462, -0.07662928)
 metadata/_edit_lock_ = true
 
 [node name="Gun" parent="cabeça/Camera3D" unique_id=613846370 instance=ExtResource("1_lkv7d")]
-transform = Transform3D(0.047803853, -2.8999764e-10, 0.99885684, -0.0033646673, 0.9999943, 0.0001610266, -0.9988512, -0.0033685565, 0.047803584, 0.16767803, -0.08289564, -0.31219158)
+transform = Transform3D(0.0234966, 0.0017223865, 0.9997224, -0.2686983, 0.96321326, 0.004655756, -0.9629376, -0.26873308, 0.023095058, 0.016773269, -0.07997668, -0.29936093)
 
 [node name="stamina" parent="." unique_id=1594404746 instance=ExtResource("2_ushfy")]

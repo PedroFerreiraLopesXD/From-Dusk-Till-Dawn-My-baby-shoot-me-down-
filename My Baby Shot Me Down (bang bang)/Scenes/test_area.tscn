@@ -5,8 +5,23 @@
 [ext_resource type="Script" uid="uid://dqoa2cxx6dc4k" path="res://Scripts/hud.gd" id="3_ifqnq"]
 [ext_resource type="PackedScene" uid="uid://6bsq7y4quhk7" path="res://Scenes/stamina.tscn" id="4_ifqnq"]
 [ext_resource type="PackedScene" uid="uid://drv4n6uaticst" path="res://Scenes/pause_menu.tscn" id="4_kbjuv"]
-[ext_resource type="AudioStream" uid="uid://b7vq417lm2p65" path="res://Assets/Musics/Man with No Name - Vasco (youtube).mp3" id="5_bc04g"]
+[ext_resource type="AudioStream" uid="uid://da511k38orr3v" path="res://Assets/Musics/01 - Titoli (from A Fistful Of Dollars) - A Fistful of Dollars (Original Soundtrack) - Dadakoglu (youtube).mp3" id="6_kbjuv"]
 [ext_resource type="PackedScene" uid="uid://c41c818hu4g48" path="res://Scenes/character_body_3d.tscn" id="7_kbjuv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kbjuv"]
+sky_top_color = Color(0.1548214, 0.41407695, 0.6439047, 1)
+sky_horizon_color = Color(0.3516347, 0.4164486, 0.47390553, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.3516347, 0.4164486, 0.47390553, 1)
+energy_multiplier = 2.0
+
+[sub_resource type="Sky" id="Sky_msx0k"]
+sky_material = SubResource("ProceduralSkyMaterial_kbjuv")
+
+[sub_resource type="Environment" id="Environment_m0xqr"]
+background_mode = 2
+sky = SubResource("Sky_msx0k")
+tonemap_mode = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fw7ol"]
 size = Vector2(20, 20)
@@ -19,9 +34,12 @@ data = PackedVector3Array(0.2286, 2.2884, -0.4349, 0.2872, 2.2884, -0.4373, 0.22
 
 [node name="TestArea" type="Node3D" unique_id=530997429]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=793410509]
-transform = Transform3D(-0.7944146, 0.2547651, -0.55136216, 0, 0.9077775, 0.4194521, 0.60737586, 0.33321887, -0.72115165, 0, 0, 0)
-sky_mode = 1
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=901563235]
+transform = Transform3D(-0.71202606, -0.5827957, 0.39162242, 0, 0.5577451, 0.8300123, -0.702153, 0.5909904, -0.39712906, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1879261392]
+environment = SubResource("Environment_m0xqr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=722481393]
 mesh = SubResource("PlaneMesh_fw7ol")
@@ -52,7 +70,7 @@ player = NodePath("..")
 [node name="PauseMenu" parent="." unique_id=1940577622 instance=ExtResource("4_kbjuv")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=637863038]
-stream = ExtResource("5_bc04g")
+stream = ExtResource("6_kbjuv")
 autoplay = true
 
 [node name="Inimigo" parent="." unique_id=12988129 instance=ExtResource("7_kbjuv")]

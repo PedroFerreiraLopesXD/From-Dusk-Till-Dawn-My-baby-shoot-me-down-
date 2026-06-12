@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://da511k38orr3v"
+path="res://.godot/imported/01 - Titoli (from A Fistful Of Dollars) - A Fistful of Dollars (Original Soundtrack) - Dadakoglu (youtube).mp3-42c090db1e6155f670b19760a8780a4e.mp3str"
+
+[deps]
+
+source_file="res://Assets/Musics/01 - Titoli (from A Fistful Of Dollars) - A Fistful of Dollars (Original Soundtrack) - Dadakoglu (youtube).mp3"
+dest_files=["res://.godot/imported/01 - Titoli (from A Fistful Of Dollars) - A Fistful of Dollars (Original Soundtrack) - Dadakoglu (youtube).mp3-42c090db1e6155f670b19760a8780a4e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
