@@ -150,7 +150,7 @@ func _headbob(time) -> Vector3:
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pjt0s"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=97614675]
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=97614675 groups=["Jogador"]]
 script = SubResource("GDScript_vu45j")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=388855511]

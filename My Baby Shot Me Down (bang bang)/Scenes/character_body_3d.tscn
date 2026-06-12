@@ -15,6 +15,7 @@ albedo_texture = ExtResource("1_hr86y")
 script = ExtResource("1_gfjpw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1309575643]
+transform = Transform3D(-0.9943787, 0, 0.10588231, 0, 1, 0, -0.10588231, 0, -0.9943787, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_gfjpw")
 mesh = SubResource("CapsuleMesh_fa3hm")
 
@@ -22,6 +23,7 @@ mesh = SubResource("CapsuleMesh_fa3hm")
 transform = Transform3D(3.1575878, -0.066978976, 0.118030734, 0.010388611, 9.112528, 0.2536103, -0.13797975, -0.8466874, 2.7201602, 0.005026333, 0.8137181, 0.09908843)
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=322473063]
+transform = Transform3D(1, 0, 0, 0, 0.004607618, 0.99998945, 0, -0.99998945, 0.004607618, 0, 0, 0.38918805)
 
 [node name="Timer" type="Timer" parent="." unique_id=54576259]
 

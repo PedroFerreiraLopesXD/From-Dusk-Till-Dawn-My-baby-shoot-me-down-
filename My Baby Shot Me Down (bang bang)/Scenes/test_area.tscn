@@ -9,11 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://c41c818hu4g48" path="res://Scenes/character_body_3d.tscn" id="7_kbjuv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kbjuv"]
-sky_top_color = Color(0.1548214, 0.41407695, 0.6439047, 1)
-sky_horizon_color = Color(0.3516347, 0.4164486, 0.47390553, 1)
+sky_top_color = Color(3.85046e-07, 0.7414411, 0.9495416, 1)
+sky_horizon_color = Color(0.4989799, 0.6843401, 0.7363652, 1)
 ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0.3516347, 0.4164486, 0.47390553, 1)
-energy_multiplier = 2.0
+ground_horizon_color = Color(0.4989799, 0.6843401, 0.7363652, 1)
 
 [sub_resource type="Sky" id="Sky_msx0k"]
 sky_material = SubResource("ProceduralSkyMaterial_kbjuv")
@@ -21,7 +20,7 @@ sky_material = SubResource("ProceduralSkyMaterial_kbjuv")
 [sub_resource type="Environment" id="Environment_m0xqr"]
 background_mode = 2
 sky = SubResource("Sky_msx0k")
-tonemap_mode = 2
+ssao_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fw7ol"]
 size = Vector2(20, 20)
@@ -34,12 +33,15 @@ data = PackedVector3Array(0.2286, 2.2884, -0.4349, 0.2872, 2.2884, -0.4373, 0.22
 
 [node name="TestArea" type="Node3D" unique_id=530997429]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=901563235]
-transform = Transform3D(-0.71202606, -0.5827957, 0.39162242, 0, 0.5577451, 0.8300123, -0.702153, 0.5909904, -0.39712906, 0, 0, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1879261392]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1231264178]
 environment = SubResource("Environment_m0xqr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=92070386]
+transform = Transform3D(-0.937889, 0.3319527, -0.10085496, 0, 0.29070225, 0.9568136, 0.3469356, 0.8973849, -0.27264643, 0, 0, 0)
+light_energy = 0.75
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+sky_mode = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=722481393]
 mesh = SubResource("PlaneMesh_fw7ol")
