@@ -117,6 +117,7 @@ func _physics_process(delta: float) -> void:
 			instance.transform.basis = gun_barrel.global_transform.basis
 			get_parent().add_child(instance)
 	if Input.is_action_just_pressed(\"Reload\"):
+		gun_animation.play(\"recarga_estilosa\")
 		Reload()
 
 	move_and_slide()
