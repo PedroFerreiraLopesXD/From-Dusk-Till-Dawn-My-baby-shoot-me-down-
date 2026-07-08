@@ -11,7 +11,8 @@ albedo_texture = ExtResource("1_hr86y")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfjpw"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gfjpw"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gfjpw"]
+size = Vector3(1.3116455, 2.7891846, 8.1203)
 
 [node name="Inimigo" type="CharacterBody3D" unique_id=12988129 groups=["Inimigo"]]
 script = ExtResource("1_gfjpw")
@@ -24,24 +25,21 @@ mesh = SubResource("CapsuleMesh_fa3hm")
 [node name="hat01" parent="." unique_id=688333960 instance=ExtResource("2_fn5od")]
 transform = Transform3D(3.1575878, -0.066978976, 0.118030734, 0.010388611, 9.112528, 0.2536103, -0.13797975, -0.8466874, 2.7201602, 0.005026333, 0.8137181, 0.09908843)
 
-[node name="RayCast3D" type="RayCast3D" parent="." unique_id=322473063]
-transform = Transform3D(1, 0, 0, 0, 0.004607618, 0.99998945, 0, -0.99998945, 0.004607618, 0, 0, 0.38918805)
-
 [node name="Timer" type="Timer" parent="." unique_id=54576259]
 wait_time = 0.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=582778781]
 shape = SubResource("CapsuleShape3D_gfjpw")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1233505140]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -0.0642719, -0.4473158)
-rotation_edit_mode = 2
+[node name="Area3D" type="Area3D" parent="." unique_id=1902038564]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2057996337]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, -0.7221993)
-shape = SubResource("ConcavePolygonShape3D_gfjpw")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=579912639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15582275, 0.8945923, -4.7469788)
+shape = SubResource("BoxShape3D_gfjpw")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1382357808]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -2.5287473)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

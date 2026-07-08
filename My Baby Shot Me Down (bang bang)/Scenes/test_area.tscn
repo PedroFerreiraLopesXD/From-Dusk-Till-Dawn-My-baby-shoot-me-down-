@@ -62,7 +62,7 @@ mesh = ExtResource("1_15qo1")
 shape = SubResource("ConcavePolygonShape3D_rfpkf")
 
 [node name="CharacterBody3D" parent="." unique_id=841813386 instance=ExtResource("2_bc04g")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.6774387, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.89877605, 0.6774387, -8.333795)
 
 [node name="HUD" type="CanvasLayer" parent="CharacterBody3D" unique_id=1274086168 node_paths=PackedStringArray("player")]
 script = ExtResource("3_ifqnq")

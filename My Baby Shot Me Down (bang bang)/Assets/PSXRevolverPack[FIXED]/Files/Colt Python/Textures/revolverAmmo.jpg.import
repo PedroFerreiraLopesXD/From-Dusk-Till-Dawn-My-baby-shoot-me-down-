@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://i4hbk5uy5wtr"
-path.s3tc="res://.godot/imported/revolverAmmo.jpg-52af5974087c34c6a6b8cea2453eedd4.s3tc.ctex"
+path.s3tc="res://.godot/imported/revolverAmmo.jpg-2e529e8c51a84adb6c6c26f06471b4f9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/PSXRevolverPack[FIXED]/Files/Colt Python/textures/revolverAmmo.jpg"
-dest_files=["res://.godot/imported/revolverAmmo.jpg-52af5974087c34c6a6b8cea2453eedd4.s3tc.ctex"]
+source_file="res://Assets/PSXRevolverPack[FIXED]/Files/Colt Python/Textures/revolverAmmo.jpg"
+dest_files=["res://.godot/imported/revolverAmmo.jpg-2e529e8c51a84adb6c6c26f06471b4f9.s3tc.ctex"]
 
 [params]
 
