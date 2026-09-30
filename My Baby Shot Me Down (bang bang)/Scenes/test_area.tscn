@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dqoa2cxx6dc4k" path="res://Scripts/hud.gd" id="3_ifqnq"]
 [ext_resource type="PackedScene" uid="uid://6bsq7y4quhk7" path="res://Scenes/stamina.tscn" id="4_ifqnq"]
 [ext_resource type="PackedScene" uid="uid://drv4n6uaticst" path="res://Scenes/pause_menu.tscn" id="4_kbjuv"]
-[ext_resource type="AudioStream" uid="uid://da511k38orr3v" path="res://Assets/Musics/01 - Titoli (from A Fistful Of Dollars) - A Fistful of Dollars (Original Soundtrack) - Dadakoglu (youtube).mp3" id="6_kbjuv"]
+[ext_resource type="AudioStream" uid="uid://bw3nipgbqcbja" path="res://Assets/YTDown.com_YouTube_Media_wD8WKe3yBnY_Fingernails_009_128k.mp3" id="6_kbjuv"]
 [ext_resource type="PackedScene" uid="uid://c41c818hu4g48" path="res://Scenes/character_body_3d.tscn" id="7_kbjuv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kbjuv"]
@@ -75,6 +75,7 @@ player = NodePath("..")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=637863038]
 stream = ExtResource("6_kbjuv")
 autoplay = true
+parameters/looping = true
 
 [node name="Inimigo" parent="." unique_id=12988129 instance=ExtResource("7_kbjuv")]
 transform = Transform3D(-0.72633326, 0, -0.33532083, 0, 0.8, 0, 0.33532083, 0, -0.72633326, 1.7281473, 0.90554416, 3.624928)
